@@ -3,28 +3,30 @@ import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 // Components
 import CharCard from './Cards/CharCard';
 import { CHARACTERSDATA } from '../DATA/charactersData';
+// Redux
+import { connect } from 'react-redux';
 
-const Characters = () => {
+const Characters = props => {
 
-    const renderGridItem = (itemData) => {
+    const renderGridItem = itemData => {
         return (
             <TouchableOpacity style={styles.gridItem} onPress={() => {
                 props.navigation.navigate({
-                    routeName: 'Detail', params: {
+                    routeName: 'Character', params: {
                         char: itemData.item
                     }
                 })
             }}>
                 <View >
                     <CharCard name={itemData.item.name}
-                        img={itemData.item.img} />
+                        image={itemData.item.image} />
                 </View>
             </TouchableOpacity>
         )
     }
 
     return (
-        <FlatList data={CHARACTERSDATA} renderItem={renderGridItem} numColumns={2} />
+        <FlatList data={props.initial} renderItem={renderGridItem} numColumns={2} />
     )
 }
 
@@ -41,4 +43,13 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Characters;
+function mapState(state) {
+    return {
+        initial: state.characters.array,
+        filtered: state.characters.filtered,
+        error: state.characters.error,
+        search: state.characters.search
+    }
+}
+
+export default connect(mapState)(Characters);

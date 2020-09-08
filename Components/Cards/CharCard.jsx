@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 const CharCard = props => {
     return (
         <View style={styles.mealItem}>
             <View>
                 <View style={styles.mealRow}>
-                    <ImageBackground source={{ uri: props.img }} style={styles.bgImage} >
+                    <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
                         <View style={styles.titleContainer}>
                             <Text style={styles.title}>{props.name}</Text>
                         </View>

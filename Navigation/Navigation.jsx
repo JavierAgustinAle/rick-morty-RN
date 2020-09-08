@@ -15,17 +15,17 @@ import LocationDetail from '../Components/MoreInfo/LocationDetail';
 
 const CharsNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
     Characters: Characters,
-    Detail: CharDetail
+    Character: CharDetail
 });
 
 const LocationNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
     Locations: Locations,
-    Detail: LocationDetail
+    Location: LocationDetail
 });
 
 const EpisodeNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
     Episodes: Episodes,
-    Detail: EpisodeDetail
+    Episode: EpisodeDetail
 });
 
 const TabNavigator = createBottomTabNavigator({
