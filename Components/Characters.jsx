@@ -26,15 +26,12 @@ const Characters = props => {
 
     return (
         <FlatList data={props.initial} renderItem={renderGridItem} numColumns={2} />
+
+
     )
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
     gridItem: {
         flex: 1,
         margin: 15,

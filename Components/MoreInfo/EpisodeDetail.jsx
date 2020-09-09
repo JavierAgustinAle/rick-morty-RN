@@ -1,12 +1,63 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+// Compoent
+import CharCard from '../Cards/CharCard';
 
-const EpisodeDetail = () => {
+const EpisodeDetail = props => {
+    const episode = props.navigation.getParam('episode');
+    const renderGridItem = itemData => {
+        return (
+            <View style={styles.gridItem}>
+                <CharCard name={itemData.item.name}
+                    image={itemData.item.image} />
+            </View>
+        )
+    }
+
     return (
-        <Text>Episode Details</Text>
+        <View style={styles.screen}>
+            <Text style={styles.titulo}>{episode.name}</Text>
+            <View style={styles.extra}>
+                <Text style={styles.texto}>{`Release: ${episode.air_date}`}</Text>
+                <Text style={styles.texto}>{`Episode: ${episode.episode}`}</Text>
+            </View>
+            <View>
+                <Text style={styles.characters}>Characters</Text>
+                <FlatList
+                    data={episode.characters}
+                    renderItem={renderGridItem}
+                />
+            </View>
+        </View>
     )
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    screen: {
+        paddingTop: 15,
+        flex: 1,
+        alignItems: 'center',
+        paddingBottom: 100
+    },
+    titulo: {
+        fontSize: 28
+    },
+    extra: {
+        paddingVertical: 5
+    },
+    texto: {
+        fontSize: 16
+    },
+    gridItem: {
+        flex: 1,
+        margin: 15,
+        height: 150
+    },
+    characters: {
+        paddingTop: 10,
+        textAlign: 'center',
+        fontSize: 20
+    }
+});
 
 export default EpisodeDetail;
