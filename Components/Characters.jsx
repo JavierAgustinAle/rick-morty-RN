@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 // Components
 import CharCard from './Cards/CharCard';
-import { CHARACTERSDATA } from '../DATA/charactersData';
 // Redux
 import { connect } from 'react-redux';
 

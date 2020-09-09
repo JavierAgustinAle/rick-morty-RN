@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 const CharCard = props => {
     return (
-        <View style={styles.mealItem}>
+        <View style={styles.item}>
             <View>
-                <View style={styles.mealRow}>
+                <View style={styles.row}>
                     <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
                         <View style={styles.titleContainer}>
                             <Text style={styles.title}>{props.name}</Text>
@@ -18,7 +18,7 @@ const CharCard = props => {
 }
 
 const styles = StyleSheet.create({
-    mealItem: {
+    item: {
         height: '100%',
         width: '100%',
         padding: 10,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'flex-end'
     },
-    mealRow: {
+    row: {
         flexDirection: 'row',
         height: '100%'
     },

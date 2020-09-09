@@ -1,27 +1,48 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 
-const InfoCard = ({ name }) => {
-    return (
-        <View style={styles.card}>
-            <Text>Episode o Location</Text>
-        </View>
-    )
+const InfoCard = props => {
+
+    if (props.title === 'episode') {
+        return (
+            <View style={styles.card}>
+                <Text style={styles.texto}>{`${props.data.name}
+                    Episode: ${props.data.episode}
+                        `}</Text>
+            </View>
+        )
+    }
+    if (props.title === 'location') {
+        let dimension
+        props.data.dimension ? dimension = props.data.dimension : dimension = 'Unknown'
+        return (
+            <View style={styles.card}>
+                <Text style={styles.texto}>{`${props.data.name}
+                    Dimension: ${dimension}
+                        `}</Text>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
+
     card: {
-        shadowColor: 'black',   // IOS
-        shadowOffset: {         // IOS
+        shadowColor: 'black',
+        shadowOffset: {
             width: 0,
             height: 2
         },
-        shadowRadius: 6,        // IOS
-        shadowOpacity: 0.26,    // IOS
-        elevation: 5,           //Para hacer la card en android
-        backgroundColor: 'white',
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        elevation: 5,
+        backgroundColor: '#460685',
         padding: 20,
-        borderRadius: 10
+        borderRadius: 10,
+        height: 140
+    },
+    texto: {
+        color: 'white'
     }
 })
 
