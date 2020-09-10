@@ -1,6 +1,6 @@
 import {
     GET_EPISODES, GET_EPISODES_SUCCESS, GET_EPISODES_ERROR,
-    GET_FILTERS_EPISODES, GET_FILTERS_EPISODES_ERROR, GET_FILTERS_EPISODES_SUCCESS, REMOVE_FILTERED,
+    GET_FILTERS_EPISODES, GET_FILTERS_EPISODES_ERROR, GET_FILTERS_EPISODES_SUCCESS, REMOVE_FILTERED_EPISODE,
     UPDATE_PAGE_EPISODE, SET_SEARCH_EP
 } from '../Actions/EpisodeActions';
 // Apollo
@@ -11,7 +11,7 @@ import { client } from '../ApolloClient';
 let initialData = {
     fetching: false,
     array: [],
-    filtered: [],
+    filteredEpi: [],
     searchEpi: '',
     nextPageEpisod: 1,
     prevPageEpisod: 0,
@@ -35,9 +35,9 @@ export default function reducer(state = initialData, action) {
         case GET_FILTERS_EPISODES_ERROR:
             return { ...state, fetching: false, errorEpiso: action.payload }
         case GET_FILTERS_EPISODES_SUCCESS:
-            return { ...state, filtered: action.payload, fetching: false, errorEpiso: false }
-        case REMOVE_FILTERED:
-            return { ...state, filtered: action.payload, errorEpiso: false, searchEpi: '' }
+            return { ...state, filteredEpi: action.payload, fetching: false, errorEpiso: false }
+        case REMOVE_FILTERED_EPISODE:
+            return { ...state, filteredEpi: action.payload, errorEpiso: false, searchEpi: '' }
         case UPDATE_PAGE_EPISODE:
             return {
                 ...state, nextPageEpisod: action.payload.next,
@@ -107,7 +107,7 @@ export const removeSearchEpisodeAction = () => (dispatch, getState) => {
     const filtered = [];
 
     dispatch({
-        type: REMOVE_FILTERED,
+        type: REMOVE_FILTERED_EPISODE,
         payload: filtered
     })
 }

@@ -29,7 +29,7 @@ const Episodes = props => {
             <View style={styles.searchBar}>
                 <SearchBar title={title} />
             </View>
-            <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+            <FlatList data={props.filteredEpi.length > 0 ? props.filteredEpi : props.initial} renderItem={renderGridItem} numColumns={2} />
         </View>
     )
 }
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 function mapState(state) {
     return {
         initial: state.episodes.array,
-        filtered: state.episodes.filtered,
+        filteredEpi: state.episodes.filteredEpi,
         error: state.episodes.errorEpiso,
         search: state.episodes.searchEpi
     }

@@ -1,6 +1,6 @@
 import {
     GET_LOCATIONS, GET_LOCATIONS_SUCCESS, GET_LOCATIONS_ERROR,
-    GET_LOCATIONS_FILTERS, GET_LOCATIONS_FILTERS_ERROR, GET_LOCATIONS_FILTERS_SUCCESS, REMOVE_FILTERED,
+    GET_LOCATIONS_FILTERS, GET_LOCATIONS_FILTERS_ERROR, GET_LOCATIONS_FILTERS_SUCCESS, REMOVE_FILTERED_LOCATION,
     UPDATE_PAGE_LOCATIONS, SET_SEARCH_LOC
 } from '../Actions/LocationActions';
 // Apollo
@@ -11,7 +11,7 @@ import { client } from '../ApolloClient';
 let initialData = {
     fetching: false,
     array: [],
-    filtered: [],
+    filteredLoc: [],
     searchLoc: '',
     nextPageLoca: 1,
     prevPageLoca: 0,
@@ -34,9 +34,9 @@ export default function reducer(state = initialData, action) {
         case GET_LOCATIONS_FILTERS_ERROR:
             return { ...state, fetching: false, errorLoc: action.payload }
         case GET_LOCATIONS_FILTERS_SUCCESS:
-            return { ...state, filtered: action.payload, fetching: false, errorLoc: false }
-        case REMOVE_FILTERED:
-            return { ...state, filtered: action.payload, errorLoc: false, searchLoc: '' }
+            return { ...state, filteredLoc: action.payload, fetching: false, errorLoc: false }
+        case REMOVE_FILTERED_LOCATION:
+            return { ...state, filteredLoc: action.payload, errorLoc: false, searchLoc: '' }
         case UPDATE_PAGE_LOCATIONS:
             return {
                 ...state, nextPageLoca: action.payload.nextLoc,
@@ -106,7 +106,7 @@ export const removeSearchLocationsAction = () => (dispatch, getState) => {
     const filtered = [];
 
     dispatch({
-        type: REMOVE_FILTERED,
+        type: REMOVE_FILTERED_LOCATION,
         payload: filtered
     })
 }

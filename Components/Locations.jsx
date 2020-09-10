@@ -28,7 +28,7 @@ const Locations = props => {
             <View style={styles.searchBar}>
                 <SearchBar title={title} />
             </View>
-            <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+            <FlatList data={props.filteredLoc.length > 0 ? props.filteredLoc : props.initial} renderItem={renderGridItem} numColumns={2} />
         </View>
     )
 }
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 function mapState(state) {
     return {
         initial: state.locations.array,
-        filtered: state.locations.filtered,
+        filteredLoc: state.locations.filteredLoc,
         error: state.locations.errorLoc,
         search: state.locations.searchLoc
     }
