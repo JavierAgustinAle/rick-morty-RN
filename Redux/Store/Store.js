@@ -2,13 +2,10 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 // Reducers
-import CharReducer from '../Reducers/CharReducer';
-import LocationReducer from '../Reducers/LocationReducer';
-import EpisodeReducer from '../Reducers/EpisodeReducer';
-// Actions
-import { getCharactersAction } from '../Reducers/CharReducer';
-import { getLocationsAction } from '../Reducers/LocationReducer';
-import { getEpisodesAction } from '../Reducers/EpisodeReducer';
+import CharReducer, { getCharactersAction } from '../Reducers/CharReducer';
+import LocationReducer, { getLocationsAction } from '../Reducers/LocationReducer';
+import EpisodeReducer, { getEpisodesAction } from '../Reducers/EpisodeReducer';
+
 
 
 let rootReducer = combineReducers({

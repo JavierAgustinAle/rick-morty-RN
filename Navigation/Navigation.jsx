@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 // Components
+import StartScreen from '../Components/StartScreen';
 import Characters from '../Components/Characters';
 import CharDetail from '../Components/MoreInfo/CharDetail';
 import Episodes from '../Components/Episodes';
@@ -13,38 +14,45 @@ import EpisodeDetail from '../Components/MoreInfo/EpisodeDetail';
 import Locations from '../Components/Locations';
 import LocationDetail from '../Components/MoreInfo/LocationDetail';
 
-const CharsNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
+
+const CharsNavigator = createStackNavigator({
+    // StartScreen: {
+    //     screen: StartScreen, navigationOptions: {
+    //         title: 'React Native Challenge',
+    //         headerTitleAlign: 'center'
+    //     }
+    // },
     Characters: Characters,
     Character: CharDetail
 });
 
-const LocationNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
+const LocationNavigator = createStackNavigator({
     Locations: Locations,
     Location: LocationDetail
 });
 
-const EpisodeNavigator = createStackNavigator({   //Para mostrar mas info sobre la pantalla,no para tabs
+const EpisodeNavigator = createStackNavigator({
     Episodes: Episodes,
     Episode: EpisodeDetail
 });
 
 const TabNavigator = createBottomTabNavigator({
     Characters: {
-        screen: CharsNavigator, navigationOptions: {         // Lo apunto al stack
+        screen: CharsNavigator, navigationOptions: {
             tabBarIcon: tabInfo => {
                 return <Ionicons name='ios-people' size={25} color={tabInfo.tintColor} />
             }
         }
     },
     Episodes: {
-        screen: EpisodeNavigator, navigationOptions: {         // Lo apunto al stack
+        screen: EpisodeNavigator, navigationOptions: {
             tabBarIcon: tabInfo => {
                 return <Ionicons name='ios-film' size={25} color={tabInfo.tintColor} />
             }
         }
     },
     Locations: {
-        screen: LocationNavigator, navigationOptions: {         // Lo apunto al stack
+        screen: LocationNavigator, navigationOptions: {
             tabBarIcon: tabInfo => {
                 return <Ionicons name='ios-locate' size={25} color={tabInfo.tintColor} />
             }
@@ -56,4 +64,4 @@ const TabNavigator = createBottomTabNavigator({
     }
 });
 
-export default createAppContainer(TabNavigator);   //Paso este que ya contiene el Stack tambien
+export default createAppContainer(TabNavigator);

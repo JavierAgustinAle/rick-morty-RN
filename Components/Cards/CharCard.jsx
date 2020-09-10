@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 const CharCard = props => {
     return (
         <View style={styles.item}>
-            <View>
+            <View style={styles.card}>
                 <View style={styles.row}>
                     <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
                         <View style={styles.titleContainer}>
@@ -44,6 +44,15 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'white',
         textAlign: 'center'
+    },
+    card: {
+        shadowColor: 'black',
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        elevation: 5,
+
     }
 })
 

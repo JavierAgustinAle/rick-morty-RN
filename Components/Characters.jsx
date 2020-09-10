@@ -2,10 +2,12 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 // Components
 import CharCard from './Cards/CharCard';
+import SearchBar from './Search/SearchBar';
 // Redux
 import { connect } from 'react-redux';
 
 const Characters = props => {
+    const title = 'characters';
 
     const renderGridItem = itemData => {
         return (
@@ -25,17 +27,30 @@ const Characters = props => {
     }
 
     return (
-        <FlatList data={props.initial} renderItem={renderGridItem} numColumns={2} />
+        <View style={styles.screen}>
+            <View style={styles.searchBar}>
+                <SearchBar title={title} />
+            </View>
+            <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+        </View>
+
 
 
     )
 }
 
 const styles = StyleSheet.create({
+    screen: {
+        flex: 1
+    },
     gridItem: {
         flex: 1,
         margin: 15,
         height: 150
+    },
+    searchBar: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
