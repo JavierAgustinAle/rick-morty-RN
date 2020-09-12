@@ -16,10 +16,10 @@ const LocationDetail = props => {
 
     return (
         <View style={styles.screen}>
-            <Text style={styles.titulo}>{location.name}</Text>
+            <Text style={styles.title}>{location.name}</Text>
             <View style={styles.extra}>
-                <Text style={styles.texto}>{`Type: ${location.type}`}</Text>
-                <Text style={styles.texto}>{location.dimension ? `Dimension: ${location.dimension}` : `Dimension: Unknown`}</Text>
+                <Text style={styles.text}>{`Type: ${location.type}`}</Text>
+                <Text style={styles.text}>{location.dimension ? `Dimension: ${location.dimension}` : `Dimension: Unknown`}</Text>
             </View>
             <View>
                 <Text style={styles.residents}>Redidents</Text>
@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingBottom: 100
     },
-    titulo: {
+    title: {
         fontSize: 28
     },
     extra: {
         paddingVertical: 5
     },
-    texto: {
+    text: {
         fontSize: 16
     },
     gridItem: {

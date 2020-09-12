@@ -16,10 +16,10 @@ const EpisodeDetail = props => {
 
     return (
         <View style={styles.screen}>
-            <Text style={styles.titulo}>{episode.name}</Text>
+            <Text style={styles.title}>{episode.name}</Text>
             <View style={styles.extra}>
-                <Text style={styles.texto}>{`Release: ${episode.air_date}`}</Text>
-                <Text style={styles.texto}>{`Episode: ${episode.episode}`}</Text>
+                <Text style={styles.text}>{`Release: ${episode.air_date}`}</Text>
+                <Text style={styles.text}>{`Episode: ${episode.episode}`}</Text>
             </View>
             <View>
                 <Text style={styles.characters}>Characters</Text>
@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingBottom: 100
     },
-    titulo: {
+    title: {
         fontSize: 28
     },
     extra: {
         paddingVertical: 5
     },
-    texto: {
+    text: {
         fontSize: 16
     },
     gridItem: {

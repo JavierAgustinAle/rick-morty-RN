@@ -6,14 +6,14 @@ const CharDetail = props => {
     return (
         <View style={styles.screen}>
             <Image source={{ uri: character.image }} style={styles.image} />
-            <Text style={styles.titulo}>{character.name}</Text>
+            <Text style={styles.title}>{character.name}</Text>
             <View style={styles.extra}>
-                <Text style={styles.texto}>{`Gender: ${character.gender}`}</Text>
-                <Text style={styles.texto}>{`Species: ${character.species}`}</Text>
+                <Text style={styles.text}>{`Gender: ${character.gender}`}</Text>
+                <Text style={styles.text}>{`Species: ${character.species}`}</Text>
                 {
                     character.type ?
-                        <Text style={styles.texto}>{`Type: ${character.type}`}</Text>
-                        : <Text style={styles.texto}>Type: No data</Text>
+                        <Text style={styles.text}>{`Type: ${character.type}`}</Text>
+                        : <Text style={styles.text}>Type: No data</Text>
                 }
             </View>
         </View>
@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
         height: '70%',
         width: '80%'
     },
-    titulo: {
+    title: {
         fontSize: 28
     },
     extra: {
         paddingVertical: 5
     },
-    texto: {
+    text: {
         fontSize: 16
     }
 });

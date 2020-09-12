@@ -6,7 +6,7 @@ const InfoCard = props => {
     if (props.title === 'episode') {
         return (
             <View style={styles.card}>
-                <Text style={styles.texto}>{`${props.data.name}
+                <Text style={styles.text}>{`${props.data.name}
                     Episode: ${props.data.episode}
                         `}</Text>
             </View>
@@ -17,9 +17,9 @@ const InfoCard = props => {
         props.data.dimension ? dimension = props.data.dimension : dimension = 'Unknown'
         return (
             <View style={styles.card}>
-                <Text style={styles.titulo} numberOfLines={2}>{props.data.name}</Text>
-                <Text style={styles.texto}> Dimension:</Text>
-                <Text style={styles.texto} numberOfLines={2}>{dimension}</Text>
+                <Text style={styles.title} numberOfLines={2}>{props.data.name}</Text>
+                <Text style={styles.text}> Dimension:</Text>
+                <Text style={styles.text} numberOfLines={2}>{dimension}</Text>
             </View>
         )
     }
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         height: 140
     },
-    texto: {
+    text: {
         color: 'white',
         paddingTop: 2
     },
-    titulo: {
+    title: {
         textAlign: 'center',
         color: 'white'
     }
