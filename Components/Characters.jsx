@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 // Components
 import CharCard from './Cards/CharCard';
 import SearchBar from './Search/SearchBar';
+import Pagination from './Pagination/Pagination';
 // Redux
 import { connect } from 'react-redux';
 
@@ -28,14 +29,19 @@ const Characters = props => {
 
     return (
         <View style={styles.screen}>
-            <View style={styles.searchBar}>
+            <View style={styles.center}>
                 <SearchBar title={title} />
             </View>
             <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+            {
+                props.error === false && props.filtered.length < 1 ?
+                    <View style={styles.center}>
+                        <Pagination title={title} />
+                    </View>
+                    : null
+
+            }
         </View>
-
-
-
     )
 }
 
@@ -48,7 +54,7 @@ const styles = StyleSheet.create({
         margin: 15,
         height: 150
     },
-    searchBar: {
+    center: {
         justifyContent: 'center',
         alignItems: 'center'
     }

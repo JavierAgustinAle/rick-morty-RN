@@ -17,9 +17,9 @@ const InfoCard = props => {
         props.data.dimension ? dimension = props.data.dimension : dimension = 'Unknown'
         return (
             <View style={styles.card}>
-                <Text style={styles.texto}>{`${props.data.name}
-                    Dimension: ${dimension}
-                        `}</Text>
+                <Text style={styles.titulo} numberOfLines={2}>{props.data.name}</Text>
+                <Text style={styles.texto}> Dimension:</Text>
+                <Text style={styles.texto} numberOfLines={2}>{dimension}</Text>
             </View>
         )
     }
@@ -42,6 +42,11 @@ const styles = StyleSheet.create({
         height: 140
     },
     texto: {
+        color: 'white',
+        paddingTop: 2
+    },
+    titulo: {
+        textAlign: 'center',
         color: 'white'
     }
 })

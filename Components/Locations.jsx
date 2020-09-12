@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native
 //Compoent
 import InfoCard from './Cards/InfoCard';
 import SearchBar from './Search/SearchBar';
+import Pagination from './Pagination/Pagination';
 // Redux
 import { connect } from 'react-redux';
 
@@ -25,10 +26,18 @@ const Locations = props => {
     }
     return (
         <View style={styles.screen}>
-            <View style={styles.searchBar}>
+            <View style={styles.center}>
                 <SearchBar title={title} />
             </View>
             <FlatList data={props.filteredLoc.length > 0 ? props.filteredLoc : props.initial} renderItem={renderGridItem} numColumns={2} />
+            {
+                props.error === false && props.filteredLoc.length < 1 ?
+                    <View style={styles.center}>
+                        <Pagination title={title} />
+                    </View>
+                    : null
+
+            }
         </View>
     )
 }
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
         margin: 15,
         height: 150
     },
-    searchBar: {
+    center: {
         justifyContent: 'center',
         alignItems: 'center'
     }
