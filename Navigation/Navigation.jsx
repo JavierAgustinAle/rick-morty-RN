@@ -14,27 +14,46 @@ import EpisodeDetail from '../Components/MoreInfo/EpisodeDetail';
 import Locations from '../Components/Locations';
 import LocationDetail from '../Components/MoreInfo/LocationDetail';
 
+const Start = createStackNavigator({
+    StartScreen: {
+        screen: StartScreen, navigationOptions: {
+            title: 'React Native Challenge',
+            headerTitleAlign: 'center'
+        }
+    }
+});
+
 
 const CharsNavigator = createStackNavigator({
-    // StartScreen: {
-    //     screen: StartScreen, navigationOptions: {
-    //         title: 'React Native Challenge',
-    //         headerTitleAlign: 'center'
-    //     }
-    // },
+    StartScreen: StartScreen,
     Characters: Characters,
     Character: CharDetail
-});
+},
+    {
+        defaultNavigationOptions: {
+            headerTitleAlign: 'center'
+        }
+    }
+);
 
 const LocationNavigator = createStackNavigator({
     Locations: Locations,
     Location: LocationDetail
+}, {
+    defaultNavigationOptions: {
+        headerTitleAlign: 'center'
+    }
 });
 
 const EpisodeNavigator = createStackNavigator({
     Episodes: Episodes,
     Episode: EpisodeDetail
-});
+},
+    {
+        defaultNavigationOptions: {
+            headerTitleAlign: 'center'
+        }
+    });
 
 const TabNavigator = createBottomTabNavigator({
     Characters: {
@@ -60,7 +79,7 @@ const TabNavigator = createBottomTabNavigator({
     }
 }, {
     tabBarOptions: {
-        activeTintColor: 'blue'
+        activeTintColor: '#562FA9'
     }
 });
 

@@ -71,7 +71,7 @@ const Searchbar = ({ title, getCharFiltersAction, getEpisodesFiltersAction, getL
 
             {
                 title !== 'episodes' && <View>
-                    <Text>{!isEnabled ? `Name` : `Type`}</Text>
+                    <Text>{!isEnabled ? `By Name` : `By Type`}</Text>
                     <Switch
                         trackColor={{ false: "#a8111b", true: "#81b0ff" }}
                         thumbColor="#f5dd4b"
