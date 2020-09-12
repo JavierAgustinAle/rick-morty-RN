@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 //Compoent
 import InfoCard from './Cards/InfoCard';
 import SearchBar from './Search/SearchBar';
 import Pagination from './Pagination/Pagination';
+import NoDataCard from './Cards/NoDataCard';
+
 // Redux
 import { connect } from 'react-redux';
 
@@ -30,7 +32,11 @@ const Episodes = props => {
             <View style={styles.center}>
                 <SearchBar title={title} />
             </View>
-            <FlatList data={props.filteredEpi.length > 0 ? props.filteredEpi : props.initial} renderItem={renderGridItem} numColumns={2} />
+            {
+                props.error === false ?
+                    <FlatList data={props.filteredEpi.length > 0 ? props.filteredEpi : props.initial} renderItem={renderGridItem} numColumns={2} />
+                    : <View style={styles.noData}><NoDataCard /></View>
+            }
             {
                 props.error === false && props.filteredEpi.length < 1 ?
                     <View style={styles.center}>
@@ -55,6 +61,10 @@ const styles = StyleSheet.create({
     center: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    noData: {
+        paddingHorizontal: 35,
+        paddingTop: 50
     }
 })
 
