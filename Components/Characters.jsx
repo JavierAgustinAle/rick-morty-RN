@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, FlatList, Modal, Text, TouchableHighlight, } from 'react-native';
+import moment from "moment";
 // Components
 import CharCard from './Cards/CharCard';
 import SearchBar from './Search/SearchBar';
@@ -10,6 +11,9 @@ import NoDataCard from './Cards/NoDataCard';
 import { connect } from 'react-redux';
 
 const Characters = props => {
+    const [modalVisible, setModalVisible] = useState(true);
+    const date = moment().format('MMMM Do YYYY');
+
     const title = 'characters';
 
     const renderGridItem = itemData => {
@@ -30,24 +34,52 @@ const Characters = props => {
     }
 
     return (
-        <View style={styles.screen}>
-            <View style={styles.center}>
-                <SearchBar title={title} />
-            </View>
+        <>
             {
-                props.error === false ?
-                    <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
-                    : <View style={styles.noData}><NoDataCard /></View>
-            }
-            {
-                props.error === false && props.filtered.length < 1 ?
-                    <View style={styles.center}>
-                        <Pagination title={title} />
+                modalVisible ?
+                    <View style={styles.centeredView}>
+                        <Modal
+                            transparent={true}
+                            visible={modalVisible}
+                        >
+                            <View style={styles.centeredView}>
+                                <View style={styles.modalView}>
+                                    <Text style={styles.title}>REACT NATIVE CHALLENGE</Text>
+                                    <Text style={styles.text}>Javier Ale</Text>
+                                    <TouchableHighlight
+                                        style={{ ...styles.button, backgroundColor: "#2196F3" }}
+                                        onPress={() => {
+                                            setModalVisible(!modalVisible);
+                                        }}
+                                    >
+                                        <Text style={styles.textButton}>ENTER</Text>
+                                    </TouchableHighlight>
+                                    <Text style={styles.text}>{date}</Text>
+                                </View>
+                            </View>
+                        </Modal>
                     </View>
-                    : null
+                    :
+                    <View style={styles.screen}>
+                        <View style={styles.center}>
+                            <SearchBar title={title} />
+                        </View>
+                        {
+                            props.error === false ?
+                                <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+                                : <View style={styles.noData}><NoDataCard /></View>
+                        }
+                        {
+                            props.error === false && props.filtered.length < 1 ?
+                                <View style={styles.center}>
+                                    <Pagination title={title} />
+                                </View>
+                                : null
 
+                        }
+                    </View>
             }
-        </View>
+        </>
     )
 }
 
@@ -67,6 +99,43 @@ const styles = StyleSheet.create({
     noData: {
         paddingHorizontal: 35,
         paddingTop: 50
+    },
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    modalView: {
+        width: '100%',
+        height: '100%',
+        margin: 20,
+        backgroundColor: '#FAFAFA',
+        padding: 35,
+        alignItems: "center"
+    },
+    button: {
+        backgroundColor: "#F194FF",
+        padding: 10,
+        borderRadius: 5,
+        elevation: 2,
+        width: 100,
+        marginBottom: 40
+    },
+    textButton: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+    },
+    title: {
+        fontSize: 20,
+        marginBottom: 15,
+        textAlign: "center"
+    },
+    text: {
+        fontSize: 20,
+        textAlign: "center",
+        marginBottom: 320,
     }
 })
 

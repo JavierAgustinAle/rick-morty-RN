@@ -6,7 +6,6 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 // Components
-import StartScreen from '../Components/StartScreen';
 import Characters from '../Components/Characters';
 import CharDetail from '../Components/MoreInfo/CharDetail';
 import Episodes from '../Components/Episodes';
@@ -14,18 +13,8 @@ import EpisodeDetail from '../Components/MoreInfo/EpisodeDetail';
 import Locations from '../Components/Locations';
 import LocationDetail from '../Components/MoreInfo/LocationDetail';
 
-const Start = createStackNavigator({
-    StartScreen: {
-        screen: StartScreen, navigationOptions: {
-            title: 'React Native Challenge',
-            headerTitleAlign: 'center'
-        }
-    }
-});
-
 
 const CharsNavigator = createStackNavigator({
-    StartScreen: StartScreen,
     Characters: Characters,
     Character: CharDetail
 },
