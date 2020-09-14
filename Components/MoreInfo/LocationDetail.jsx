@@ -22,7 +22,7 @@ const LocationDetail = props => {
                 <Text style={styles.text}>{location.dimension ? `Dimension: ${location.dimension}` : `Dimension: Unknown`}</Text>
             </View>
             <View>
-                <Text style={styles.residents}>Redidents</Text>
+                <Text style={styles.residents}>Residents</Text>
                 {
                     location.residents[0].id != null
                         ? <FlatList
