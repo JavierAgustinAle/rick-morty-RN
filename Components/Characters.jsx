@@ -66,7 +66,8 @@ const Characters = props => {
                         </View>
                         {
                             props.error === false ?
-                                <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial} renderItem={renderGridItem} numColumns={2} />
+                                <FlatList data={props.filtered.length > 0 ? props.filtered : props.initial}
+                                    renderItem={renderGridItem} numColumns={2} keyExtractor={item => item.id} />
                                 : <View style={styles.noData}><NoDataCard /></View>
                         }
                         {

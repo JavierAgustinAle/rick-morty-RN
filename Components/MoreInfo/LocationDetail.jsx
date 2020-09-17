@@ -28,6 +28,7 @@ const LocationDetail = props => {
                         ? <FlatList
                             data={location.residents}
                             renderItem={renderGridItem}
+                            keyExtractor={item => item.id}
                         />
                         : <Text style={styles.residents}>No Residents</Text>
                 }

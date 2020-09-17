@@ -34,7 +34,8 @@ const Episodes = props => {
             </View>
             {
                 props.error === false ?
-                    <FlatList data={props.filteredEpi.length > 0 ? props.filteredEpi : props.initial} renderItem={renderGridItem} numColumns={2} />
+                    <FlatList data={props.filteredEpi.length > 0 ? props.filteredEpi : props.initial}
+                        renderItem={renderGridItem} numColumns={2} keyExtractor={item => item.id} />
                     : <View style={styles.noData}><NoDataCard /></View>
             }
             {

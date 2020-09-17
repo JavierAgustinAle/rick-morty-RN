@@ -26,6 +26,7 @@ const EpisodeDetail = props => {
                 <FlatList
                     data={episode.characters}
                     renderItem={renderGridItem}
+                    keyExtractor={item => item.id}
                 />
             </View>
         </View>
