@@ -11,8 +11,7 @@ const InfoCard = props => {
                         `}</Text>
             </View>
         )
-    }
-    if (props.title === 'location') {
+    } else {
         let dimension = props.data.dimension ? props.data.dimension : 'Unknown';
         return (
             <View style={styles.card}>
