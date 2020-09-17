@@ -13,8 +13,7 @@ const InfoCard = props => {
         )
     }
     if (props.title === 'location') {
-        let dimension
-        props.data.dimension ? dimension = props.data.dimension : dimension = 'Unknown'
+        let dimension = props.data.dimension ? props.data.dimension : 'Unknown';
         return (
             <View style={styles.card}>
                 <Text style={styles.title} numberOfLines={2}>{props.data.name}</Text>
