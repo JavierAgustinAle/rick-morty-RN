@@ -11,15 +11,18 @@ import { connect } from 'react-redux';
 
 const Episodes = props => {
     const title = 'episodes';
+
+    function goToEpisode(itemData) {
+        props.navigation.navigate({
+            routeName: 'Episode', params: {
+                episode: itemData.item
+            }
+        })
+    }
+
     const renderGridItem = itemData => {
         return (
-            <TouchableOpacity style={styles.gridItem} onPress={() => {
-                props.navigation.navigate({
-                    routeName: 'Episode', params: {
-                        episode: itemData.item
-                    }
-                })
-            }}>
+            <TouchableOpacity style={styles.gridItem} onPress={() => goToEpisode(itemData)}>
                 <View >
                     <InfoCard title='episode' data={itemData.item} />
                 </View>

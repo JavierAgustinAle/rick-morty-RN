@@ -16,15 +16,18 @@ const Characters = props => {
 
     const title = 'characters';
 
+    function goToCharacter(itemData) {
+        props.navigation.navigate({
+            routeName: 'Character', params: {
+                char: itemData.item
+            }
+        })
+    }
+
+
     const renderGridItem = itemData => {
         return (
-            <TouchableOpacity style={styles.gridItem} onPress={() => {
-                props.navigation.navigate({
-                    routeName: 'Character', params: {
-                        char: itemData.item
-                    }
-                })
-            }}>
+            <TouchableOpacity style={styles.gridItem} onPress={() => goToCharacter(itemData)} >
                 <View >
                     <CharCard name={itemData.item.name}
                         image={itemData.item.image} />
@@ -48,9 +51,7 @@ const Characters = props => {
                                     <Text style={styles.text}>Javier Ale</Text>
                                     <TouchableHighlight
                                         style={{ ...styles.button, backgroundColor: "#2196F3" }}
-                                        onPress={() => {
-                                            setModalVisible(!modalVisible);
-                                        }}
+                                        onPress={() => setModalVisible(!modalVisible)}
                                     >
                                         <Text style={styles.textButton}>ENTER</Text>
                                     </TouchableHighlight>
