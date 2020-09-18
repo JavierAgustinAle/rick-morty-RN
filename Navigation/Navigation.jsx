@@ -13,15 +13,16 @@ import EpisodeDetail from '../Components/MoreInfo/EpisodeDetail';
 import Locations from '../Components/Locations';
 import LocationDetail from '../Components/MoreInfo/LocationDetail';
 
+const center = {
+    headerTitleAlign: 'center'
+}
 
 const CharsNavigator = createStackNavigator({
     Characters: Characters,
     Character: CharDetail
 },
     {
-        defaultNavigationOptions: {
-            headerTitleAlign: 'center'
-        }
+        defaultNavigationOptions: center
     }
 );
 
@@ -29,20 +30,16 @@ const LocationNavigator = createStackNavigator({
     Locations: Locations,
     Location: LocationDetail
 }, {
-    defaultNavigationOptions: {
-        headerTitleAlign: 'center'
-    }
+    defaultNavigationOptions: center
 });
 
 const EpisodeNavigator = createStackNavigator({
     Episodes: Episodes,
     Episode: EpisodeDetail
-},
-    {
-        defaultNavigationOptions: {
-            headerTitleAlign: 'center'
-        }
-    });
+}, {
+    defaultNavigationOptions: center
+});
+
 
 const TabNavigator = createBottomTabNavigator({
     Characters: {
