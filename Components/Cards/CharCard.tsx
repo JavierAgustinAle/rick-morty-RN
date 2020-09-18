@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import styles from './Styles/CharCardStyles';
+// Model
+import { ICharacterShort } from '../../Interfaces/ICharacters.model';
 
-const CharCard = props => {
+const CharCard = (props: ICharacterShort) => {
     return (
         <View style={styles.item}>
             <View style={styles.card}>

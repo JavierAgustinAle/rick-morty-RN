@@ -12,6 +12,7 @@ import NoDataCard from './Cards/NoDataCard';
 import { connect } from 'react-redux';
 
 const Characters = props => {
+
     const [modalVisible, setModalVisible] = useState(true);
     const date = moment().format('MMMM Do YYYY');
 

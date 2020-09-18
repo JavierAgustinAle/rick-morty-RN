@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import styles from './Styles/LocationDetailStyles';
+// Model
+import { ILocations } from '../../Interfaces/ILocations.model';
 // Compoent
 import CharCard from '../Cards/CharCard';
 
 const LocationDetail = props => {
-    const location = props.navigation.getParam('location');
+
+    const location: ILocations = props.navigation.getParam('location');
+
     const renderGridItem = itemData => {
         return (
             <View style={styles.gridItem}>
@@ -27,7 +31,7 @@ const LocationDetail = props => {
                 {
                     location.residents[0].id != null
                         ? <FlatList
-                            data={location.residents}
+                            data={Object.values(location.residents)}
                             renderItem={renderGridItem}
                             keyExtractor={item => item.id}
                         />

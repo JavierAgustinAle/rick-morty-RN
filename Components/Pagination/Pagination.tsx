@@ -8,6 +8,7 @@ import { getCharactersAction } from '../../Redux/Reducers/CharReducer';
 import { getEpisodesAction } from '../../Redux/Reducers/EpisodeReducer';
 import { getLocationsAction } from '../../Redux/Reducers/LocationReducer';
 
+
 const Pagination = ({ title, charsTotal, episodTotal, locationTotal, charsNext, episodNext,
     locationNext, charsPrev, episodPrev, locationPrev, getCharactersAction, getEpisodesAction,
     getLocationsAction }) => {

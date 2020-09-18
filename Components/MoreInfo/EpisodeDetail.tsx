@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import styles from './Styles/EpisodeDetailStyles';
-
-// Compoent
+// Model
+import { IEpisode } from '../../Interfaces/IEpisode.model';
+// Component
 import CharCard from '../Cards/CharCard';
 
 const EpisodeDetail = props => {
-    const episode = props.navigation.getParam('episode');
+    const episode: IEpisode = props.navigation.getParam('episode');
+
     const renderGridItem = itemData => {
         return (
             <View style={styles.gridItem}>
@@ -15,6 +17,7 @@ const EpisodeDetail = props => {
             </View>
         )
     }
+
 
     return (
         <View style={styles.screen}>
@@ -26,7 +29,7 @@ const EpisodeDetail = props => {
             <View>
                 <Text style={styles.characters}>Characters</Text>
                 <FlatList
-                    data={episode.characters}
+                    data={Object.values(episode.characters)}
                     renderItem={renderGridItem}
                     keyExtractor={item => item.id}
                 />
