@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
+import styles from './PaginationStyle';
 import { AntDesign } from '@expo/vector-icons'
 // Redux
 import { connect } from 'react-redux';
@@ -76,25 +77,6 @@ const Pagination = ({ title, charsTotal, episodTotal, locationTotal, charsNext, 
     )
 };
 
-const styles = StyleSheet.create({
-    inputContainer: {
-        width: 300,
-        maxWidth: '80%',
-        alignItems: 'center',
-        paddingBottom: 2
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        width: '70%',
-        height: 20,
-        justifyContent: 'space-between'
-    },
-    button: {
-        width: 60,
-        height: 8,
-        alignItems: 'center'
-    }
-})
 
 function mapState(state) {
     return {

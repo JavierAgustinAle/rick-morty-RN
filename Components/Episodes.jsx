@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
+import styles from './Styles/EpisodesStyle';
 //Compoent
 import InfoCard from './Cards/InfoCard';
 import SearchBar from './Search/SearchBar';
@@ -52,25 +53,6 @@ const Episodes = props => {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1
-    },
-    gridItem: {
-        flex: 1,
-        margin: 15,
-        height: 150
-    },
-    center: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    noData: {
-        paddingHorizontal: 35,
-        paddingTop: 50
-    }
-})
 
 function mapState(state) {
     return {

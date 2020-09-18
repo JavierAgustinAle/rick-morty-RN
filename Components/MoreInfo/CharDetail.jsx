@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
+import styles from './Styles/CharDetailStyles';
 
 const CharDetail = props => {
     const character = props.navigation.getParam('char');
@@ -21,25 +22,6 @@ const CharDetail = props => {
     )
 }
 
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    image: {
-        height: '70%',
-        width: '80%'
-    },
-    title: {
-        fontSize: 28
-    },
-    extra: {
-        paddingVertical: 5
-    },
-    text: {
-        fontSize: 16
-    }
-});
+
 
 export default CharDetail;

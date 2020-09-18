@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Switch, Text, TouchableOpacity } from 'react-native';
+import { View, Switch, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import styles from './Styles/SearchBar';
+
 // Component
 import Input from './Input';
 //Redux
@@ -85,24 +87,6 @@ const Searchbar = ({ title, getCharFiltersAction, getEpisodesFiltersAction, getL
     )
 }
 
-const styles = StyleSheet.create({
-    inputContainer: {
-        width: 300,
-        maxWidth: '80%',
-        alignItems: 'center'
-    },
-    barContainer: {
-        flexDirection: 'row'
-    },
-    input: {
-        width: 200,
-        textAlign: 'center',
-    },
-    button: {
-        width: 30,
-        paddingTop: 12
-    }
-});
 
 function mapState(state) { return {} }
 
