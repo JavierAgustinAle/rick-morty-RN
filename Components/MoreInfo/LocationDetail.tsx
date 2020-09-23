@@ -6,11 +6,12 @@ import { ILocations } from '../../Interfaces/ILocations.model';
 // Compoent
 import CharCard from '../Cards/CharCard';
 
-const LocationDetail = props => {
+const LocationDetail: React.FC<any> = props => {
 
     const location: ILocations = props.navigation.getParam('location');
 
     const renderGridItem = itemData => {
+
         return (
             <View style={styles.gridItem}>
                 <CharCard name={itemData.item.name}

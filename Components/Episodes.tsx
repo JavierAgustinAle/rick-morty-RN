@@ -10,10 +10,11 @@ import NoDataCard from './Cards/NoDataCard';
 // Redux
 import { connect } from 'react-redux';
 
-const Episodes = props => {
-    const title = 'episodes';
+const Episodes: React.FC<any> = props => {
 
-    function goToEpisode(itemData) {
+    const title: string = 'episodes';
+
+    function goToEpisode(itemData): void {
         props.navigation.navigate({
             routeName: 'Episode', params: {
                 episode: itemData.item
@@ -54,7 +55,7 @@ const Episodes = props => {
     )
 }
 
-function mapState(state) {
+function mapState(state: any) {
     return {
         initial: state.episodes.array,
         filteredEpi: state.episodes.filteredEpi,

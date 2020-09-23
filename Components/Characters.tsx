@@ -11,14 +11,14 @@ import NoDataCard from './Cards/NoDataCard';
 // Redux
 import { connect } from 'react-redux';
 
-const Characters = props => {
+const Characters: React.FC<any> = props => {
 
-    const [modalVisible, setModalVisible] = useState(true);
-    const date = moment().format('MMMM Do YYYY');
+    const [modalVisible, setModalVisible] = useState<boolean>(true);
+    const date: string = moment().format('MMMM Do YYYY');
 
-    const title = 'characters';
+    const title: string = 'characters';
 
-    function goToCharacter(itemData) {
+    function goToCharacter(itemData): void {
         props.navigation.navigate({
             routeName: 'Character', params: {
                 char: itemData.item
@@ -88,7 +88,7 @@ const Characters = props => {
 }
 
 
-function mapState(state) {
+function mapState(state: any) {
     return {
         initial: state.characters.array,
         filtered: state.characters.filtered,

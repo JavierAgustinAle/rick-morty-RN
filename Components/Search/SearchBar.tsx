@@ -11,17 +11,27 @@ import { getCharFiltersAction, removeSearchCharAction } from '../../Redux/Reduce
 import { getEpisodesFiltersAction, removeSearchEpisodeAction } from '../../Redux/Reducers/EpisodeReducer';
 import { getLocationsFiltersAction, removeSearchLocationsAction } from '../../Redux/Reducers/LocationReducer';
 
+interface Search {
+    title: string;
+    getCharFiltersAction: Function;
+    getEpisodesFiltersAction: Function;
+    getLocationsFiltersAction: Function;
+    removeSearchCharAction: Function;
+    removeSearchEpisodeAction: Function;
+    removeSearchLocationsAction: Function;
+}
 
-const Searchbar = ({ title, getCharFiltersAction, getEpisodesFiltersAction, getLocationsFiltersAction,
+const Searchbar: React.FC<Search> = ({ title, getCharFiltersAction, getEpisodesFiltersAction, getLocationsFiltersAction,
     removeSearchCharAction, removeSearchEpisodeAction, removeSearchLocationsAction }) => {
 
-    const [isEnabled, setIsEnabled] = useState(false);
-    const [inputState, setInputState] = useState('');
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [isEnabled, setIsEnabled] = useState<boolean>(false);
+    const [inputState, setInputState] = useState<string>('');
+    const toggleSwitch = (): void => setIsEnabled(previousState => !previousState);
 
-    function searchInfo(e) {
-        let target = e;
+    function searchInfo(e: string): void {
+        let target: string = e;
         setInputState(target)
+
         if (target.length > 2) {
             if (title === 'characters') {
                 !isEnabled ?
@@ -39,7 +49,7 @@ const Searchbar = ({ title, getCharFiltersAction, getEpisodesFiltersAction, getL
         }
     }
 
-    function clearSearch() {
+    function clearSearch(): void {
         if (title === 'characters') {
             removeSearchCharAction();
         }

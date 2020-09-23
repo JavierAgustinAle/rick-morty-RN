@@ -8,12 +8,27 @@ import { getCharactersAction } from '../../Redux/Reducers/CharReducer';
 import { getEpisodesAction } from '../../Redux/Reducers/EpisodeReducer';
 import { getLocationsAction } from '../../Redux/Reducers/LocationReducer';
 
+interface pagination {
+    title: string;
+    charsTotal: number;
+    episodTotal: number;
+    locationTotal: number;
+    charsNext: number;
+    episodNext: number;
+    locationNext: number;
+    charsPrev: number;
+    episodPrev: number;
+    locationPrev: number;
+    getCharactersAction: Function;
+    getEpisodesAction: Function;
+    getLocationsAction: Function;
+}
 
-const Pagination = ({ title, charsTotal, episodTotal, locationTotal, charsNext, episodNext,
+const Pagination: React.FC<pagination> = ({ title, charsTotal, episodTotal, locationTotal, charsNext, episodNext,
     locationNext, charsPrev, episodPrev, locationPrev, getCharactersAction, getEpisodesAction,
     getLocationsAction }) => {
 
-    function goToNextPage() {
+    function goToNextPage(): boolean {
         switch (title) {
             case 'episodes':
                 getEpisodesAction()
@@ -29,7 +44,7 @@ const Pagination = ({ title, charsTotal, episodTotal, locationTotal, charsNext, 
         }
     }
 
-    function goToPrevPage() {
+    function goToPrevPage(): boolean {
         switch (title) {
             case 'episodes':
                 getEpisodesAction(episodPrev)
@@ -79,7 +94,7 @@ const Pagination = ({ title, charsTotal, episodTotal, locationTotal, charsNext, 
 };
 
 
-function mapState(state) {
+function mapState(state: any) {
     return {
         charsTotal: state.characters.totalPages,
         episodTotal: state.episodes.totalPagesEpisod,

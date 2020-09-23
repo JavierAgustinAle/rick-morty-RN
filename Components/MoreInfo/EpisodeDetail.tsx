@@ -6,7 +6,8 @@ import { IEpisode } from '../../Interfaces/IEpisode.model';
 // Component
 import CharCard from '../Cards/CharCard';
 
-const EpisodeDetail = props => {
+const EpisodeDetail: React.FC<any> = props => {
+
     const episode: IEpisode = props.navigation.getParam('episode');
 
     const renderGridItem = itemData => {

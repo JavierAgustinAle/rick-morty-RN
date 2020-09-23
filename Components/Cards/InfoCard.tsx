@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './Styles/InfoCardStyles';
 
-const InfoCard = props => {
+
+
+const InfoCard: React.FC<any> = props => {
 
     if (props.title === 'episode') {
         return (
@@ -13,7 +15,7 @@ const InfoCard = props => {
             </View>
         )
     } else {
-        let dimension = props.data.dimension ? props.data.dimension : 'Unknown';
+        let dimension: string = props.data.dimension ? props.data.dimension : 'Unknown';
         return (
             <View style={styles.card}>
                 <Text style={styles.title} numberOfLines={2}>{props.data.name}</Text>

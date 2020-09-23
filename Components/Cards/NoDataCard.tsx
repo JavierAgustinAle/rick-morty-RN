@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './Styles/NoDataCardStyles';
 
-const NoDataCard = () => {
+const NoDataCard = (): JSX.Element => {
 
     return (
         <View style={styles.card}>

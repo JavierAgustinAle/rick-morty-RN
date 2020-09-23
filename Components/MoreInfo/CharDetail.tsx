@@ -4,7 +4,8 @@ import styles from './Styles/CharDetailStyles';
 // Model
 import { ICharacters } from '../../Interfaces/ICharacters.model'
 
-const CharDetail = props => {
+const CharDetail: React.FC<any> = props => {
+
     const character: ICharacters = props.navigation.getParam('char');
     return (
         <View style={styles.screen}>
