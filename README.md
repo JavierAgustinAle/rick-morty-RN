@@ -7,6 +7,8 @@ Aplicacion ReactNative de Rick & Morty. :iphone:
 2. Ver los episodios que posee la serie.
 3. Ver las diferentes locaciones que aparecen en la serie.
 
+### [Click to see demo video](https://youtu.be/7zeictpuGV0)
+
 ## Aplicacion hecha por [Javier Ale](https://www.linkedin.com/in/javieragustinale/) :computer:
 
 ### Screenshots
